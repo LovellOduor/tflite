@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.17)
+cmake_minimum_required(VERSION 3.1.0)
 project(TFLiteImageClassification)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -23,7 +23,7 @@ endif()
 if(UNIX AND NOT APPLE )
     ADD_LIBRARY(tensorflowlite SHARED IMPORTED)
     set_property(TARGET tensorflowlite PROPERTY IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/../tflite-dist/libs/linux_x64/libtensorflowlite.so)
-    target_link_libraries(TFLiteCheck tensorflowlite ${OpenCV_LIBS})
+    target_link_libraries(${PROJECT_NAME}  tensorflowlite ${OpenCV_LIBS})
 endif()
 
 if(APPLE)
